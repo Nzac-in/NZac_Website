@@ -523,3 +523,23 @@ h6,
     padding-right: 0;
     border-right: none;
 }
+.logo-wrapper {
+    position: relative;
+}
+
+.logo {
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Initial state */
+.logo-top {
+    opacity: 1;
+}
+
+.logo-scroll {
+    opacity: 0;
+}
