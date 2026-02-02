@@ -113,29 +113,47 @@ h6,
 }
 
 @media (max-width: 991.98px) {
+    .navbar-light {
+        background: var(--primary);
+    }
+    
     .sticky-top.navbar-light {
         position: relative;
-        background: #FFFFFF;
+        background: var(--primary);
     }
 
     .navbar-light .navbar-collapse {
         margin-top: 15px;
-        border-top: 1px solid #DDDDDD;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .navbar-light .navbar-nav .nav-link,
     .sticky-top.navbar-light .navbar-nav .nav-link {
         padding: 10px 0;
         margin-left: 0;
-        color: var(--dark) !important;
+        color: #FFFFFF !important;
     }
 
     .navbar-light .navbar-brand h1 {
-        color: var(--primary);
+        color: #FFFFFF;
     }
 
     .navbar-light .navbar-brand img {
         max-height: 45px;
+    }
+    
+    .navbar-light .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .navbar-light .navbar-toggler:focus,
+    .navbar-light .navbar-toggler:active {
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+    }
+    
+    .navbar-light .navbar-toggler .fa-bars {
+        color: #FFFFFF;
     }
 }
 

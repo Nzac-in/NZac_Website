@@ -593,7 +593,7 @@
 <script>
     const navLogo = document.getElementById("navLogo");
 
-    window.addEventListener("scroll", function () {
+    function updateLogo() {
         if (window.scrollY > 10) {
             // User scrolled → show main logo
             navLogo.src = "img/nz_logo.png";
@@ -601,7 +601,16 @@
             // User at top → show second logo
             navLogo.src = "img/nz_logo2.png";
         }
-    });
+    }
+
+    // Handle scroll events for all devices
+    window.addEventListener("scroll", updateLogo);
+    
+    // Handle touch events specifically for mobile devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        window.addEventListener("touchstart", updateLogo);
+        window.addEventListener("touchmove", updateLogo);
+    }
 </script>
 
     <script>
