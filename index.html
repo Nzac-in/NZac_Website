@@ -616,23 +616,49 @@
     const navLogo = document.getElementById("navLogo");
 
     function updateLogo() {
-        if (window.scrollY > 10) {
-            // User scrolled → show main logo
-            navLogo.src = "img/nz_logo.png";
-        } else {
-            // User at top → show second logo
+        // Check if mobile view (width <= 991px)
+        const isMobile = window.innerWidth <= 991;
+        
+        if (isMobile) {
+            // In mobile view, always show logo2 (white logo) since background is always blue
             navLogo.src = "img/nz_logo2.png";
+        } else {
+            // In desktop view, change logo based on scroll
+            if (window.scrollY > 10) {
+                navLogo.src = "img/nz_logo.png";
+            } else {
+                navLogo.src = "img/nz_logo2.png";
+            }
         }
     }
 
     // Handle scroll events for all devices
     window.addEventListener("scroll", updateLogo);
     
+    // Handle resize to update logo when switching between mobile/desktop
+    window.addEventListener("resize", updateLogo);
+    
     // Handle touch events specifically for mobile devices
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
         window.addEventListener("touchstart", updateLogo);
         window.addEventListener("touchmove", updateLogo);
     }
+    
+    // Initial logo update on page load
+    updateLogo();
+    
+    // Auto-close navbar on mobile when nav link is clicked
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            const navbarCollapse = document.getElementById('navbarCollapse');
+            if (window.innerWidth <= 991 && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            }
+        });
+    });
 </script>
 
     <script>

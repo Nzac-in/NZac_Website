@@ -118,8 +118,11 @@ h6,
     }
     
     .sticky-top.navbar-light {
-        position: relative;
+        position: fixed;
+        top: 0;
+        width: 100%;
         background: var(--primary);
+        z-index: 999;
     }
 
     .navbar-light .navbar-collapse {
